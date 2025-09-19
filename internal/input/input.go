@@ -1,6 +1,7 @@
 package input
 
 import (
+	"aes/internal/encryption"
 	"bufio"
 	"fmt"
 	"log"
@@ -26,6 +27,6 @@ func ReadInput() {
 		fmt.Println("This file does not exist in this directory.")
 	} else {
 		fmt.Println("SUCCESS \nFile found!")
-		// Call next function
+		encryption.ReadContent(fileName.Text())
 	}
 }
