@@ -19,6 +19,9 @@ func ReadContent(fileName string) {
 
 	fmt.Printf("File Size: %v bytes\n", fileSize.Size())
 	// NOTE: output is a []byte slice. Will not be readable if anything but text
-	fmt.Printf("--------------THE-CONTENT-------------------------\n%s\n", fileContent)
-	fmt.Println("--------------THE-END-------------------------")
+	// Uncomment for debug purposes
+	//fmt.Printf("--------------THE-CONTENT-------------------------\n%s\n", fileContent)
+	//fmt.Println("--------------THE-END-------------------------")
+
+	encryptContent(fileContent)
 }
