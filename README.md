@@ -1,0 +1,19 @@
+# <PROJECT_NAME>
+
+<PROJECT_DESCRIPTION>
+
+## Installation
+
+<INSTALLATION_STEPS>
+
+## Usage
+
+<USAGE_EXAMPLE>
+
+## Contributing
+
+<CONTRIBUTING_STEPS>
+
+## License
+
+<LICENSE_DETAILS>
