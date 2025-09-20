@@ -1,6 +1,9 @@
-# <PROJECT_NAME>
+# AES-Encrypt-CLI
+AES-Encrypt is a CLI-tool to encrypt any file you want. Simply start the program, enter the file name and encrypt it using **AES-256**.  
 
-<PROJECT_DESCRIPTION>
+This tool uses the **GCM (Galois/Counter Mode)** because it allows messages longer than the block length of the block cipher to be encrypted.  
+
+A GUI version is likely.
 
 ## Installation
 
@@ -16,4 +19,4 @@
 
 ## License
 
-<LICENSE_DETAILS>
+MIT License (see LICENSE file for more information)
