@@ -1,14 +1,13 @@
 package input
 
 import (
-	"aes/internal/encryption"
 	"bufio"
 	"fmt"
 	"log"
 	"os"
 )
 
-func ReadInput() {
+func ReadInput() (string, error) {
 	fmt.Println("Please enter the file name you wish to encrypt: ")
 
 	fileName := bufio.NewScanner(os.Stdin)
@@ -25,8 +24,10 @@ func ReadInput() {
 
 	if os.IsNotExist(err) {
 		fmt.Println("This file does not exist in this directory.")
+		return "", err
 	} else {
 		fmt.Println("SUCCESS \nFile found!")
-		encryption.ReadContent(fileName.Text())
 	}
+
+	return fileName.Text(), nil
 }
