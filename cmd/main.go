@@ -22,5 +22,5 @@ func main() {
 		log.Fatalf("Error while encrypting the content")
 	}
 
-	encryption.CreateNewFile(ciphertext)
+	encryption.CreateNewFile(fileName, ciphertext)
 }
