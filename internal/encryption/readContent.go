@@ -2,21 +2,20 @@ package encryption
 
 import (
 	"fmt"
-	"log"
 	"os"
 )
 
-func ReadContent(fileName string) {
+func ReadContent(fileName string) ([]byte, error) {
 	fmt.Println("The file is being read... Please wait...")
 
 	fileInfo, err := os.Stat(fileName)
 	if err != nil {
-		log.Fatalf("failed to get file info: %v", err)
+		return nil, fmt.Errorf("failed to get file info: %w", err)
 	}
 
 	fileContent, err := os.ReadFile(fileName)
 	if err != nil {
-		log.Fatalf("failed to read file content: %v", err)
+		return nil, fmt.Errorf("failed to read file content: %v", err)
 	}
 
 	fmt.Printf("File Size: %v bytes\n", fileInfo.Size())
@@ -25,5 +24,5 @@ func ReadContent(fileName string) {
 	//fmt.Printf("--------------THE-CONTENT-------------------------\n%s\n", fileContent)
 	//fmt.Println("--------------THE-END-------------------------")
 
-	EncryptContent(fileContent)
+	return fileContent, nil
 }
