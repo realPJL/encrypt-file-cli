@@ -36,5 +36,7 @@ func EncryptContent(fileContent []byte) ([]byte, error) {
 
 	ciphertext := aesgcm.Seal(nonce, nonce, fileContent, nil)
 
+	fmt.Println("Done! Ciphertext generated. Please wait while the encrypted file is being created.")
+
 	return ciphertext, nil
 }
