@@ -9,19 +9,21 @@ import (
 func ReadContent(fileName string) {
 	fmt.Println("The file is being read... Please wait...")
 
-	fileSize, err1 := os.Stat(fileName)
-
-	fileContent, err2 := os.ReadFile(fileName)
-
-	if err1 != nil || err2 != nil {
-		log.Fatal(err1, err2)
+	fileInfo, err := os.Stat(fileName)
+	if err != nil {
+		log.Fatalf("failed to get file info: %v", err)
 	}
 
-	fmt.Printf("File Size: %v bytes\n", fileSize.Size())
+	fileContent, err := os.ReadFile(fileName)
+	if err != nil {
+		log.Fatalf("failed to read file content: %v", err)
+	}
+
+	fmt.Printf("File Size: %v bytes\n", fileInfo.Size())
 	// NOTE: output is a []byte slice. Will not be readable if anything but text
 	// Uncomment for debug purposes
 	//fmt.Printf("--------------THE-CONTENT-------------------------\n%s\n", fileContent)
 	//fmt.Println("--------------THE-END-------------------------")
 
-	encryptContent(fileContent)
+	EncryptContent(fileContent)
 }
