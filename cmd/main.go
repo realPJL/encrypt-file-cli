@@ -3,24 +3,15 @@ package main
 import (
 	"aes/internal/encryption"
 	"aes/internal/input"
-	"log"
 )
 
 func main() {
-	fileName, errInput := input.ReadInput()
-	if errInput != nil {
-		log.Fatalf("404")
-	}
+	// No errors required as these are handled in the respective file
+	fileName, _ := input.ReadInput()
 
-	fileContent, errContent := encryption.ReadContent(fileName)
-	if errContent != nil {
-		log.Fatalf("Error while reading file content")
-	}
+	fileContent, _ := encryption.ReadContent(fileName)
 
-	ciphertext, errEncrypt := encryption.EncryptContent(fileContent)
-	if errEncrypt != nil {
-		log.Fatalf("Error while encrypting the content")
-	}
+	ciphertext, _ := encryption.EncryptContent(fileContent)
 
 	encryption.CreateNewFile(fileName, ciphertext)
 }
