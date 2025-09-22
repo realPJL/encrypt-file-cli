@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	// No errors required as these are handled in the respective file
+	fmt.Println("----------WIP-AES-Encryption----------")
+
 	fileName, err := input.ReadInput()
 	if err != nil {
 		fmt.Println(err)
