@@ -27,7 +27,10 @@ go.work.sum
 # env file
 .env
 
+# generated files
+/encryptedFiles
+
 # Editor/IDE
 # .idea/
 .vscode/
-.DS_Store
+**/.DS_Store
