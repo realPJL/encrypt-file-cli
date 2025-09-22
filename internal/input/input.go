@@ -23,8 +23,7 @@ func ReadInput() (string, error) {
 	_, err = os.Stat(fileName.Text())
 
 	if os.IsNotExist(err) {
-		fmt.Println("This file does not exist in this directory.")
-		return "", err
+		return "", fmt.Errorf("this file does not exist in this directory")
 	} else {
 		fmt.Println("SUCCESS \nFile found!")
 	}

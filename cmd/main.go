@@ -3,24 +3,33 @@ package main
 import (
 	"aes/internal/encryption"
 	"aes/internal/input"
-	"log"
+	"fmt"
+	"os"
 )
 
 func main() {
-	fileName, errInput := input.ReadInput()
-	if errInput != nil {
-		log.Fatalf("404")
+	// No errors required as these are handled in the respective file
+	fileName, err := input.ReadInput()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
-	fileContent, errContent := encryption.ReadContent(fileName)
-	if errContent != nil {
-		log.Fatalf("Error while reading file content")
+	fileContent, err := encryption.ReadContent(fileName)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
-	ciphertext, errEncrypt := encryption.EncryptContent(fileContent)
-	if errEncrypt != nil {
-		log.Fatalf("Error while encrypting the content")
+	ciphertext, err := encryption.EncryptContent(fileContent)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
-	encryption.CreateNewFile(ciphertext)
+	errCreate := encryption.CreateNewFile(fileName, ciphertext)
+	if errCreate != nil {
+		fmt.Printf("failed to create new file: %v", errCreate)
+		os.Exit(1)
+	}
 }
