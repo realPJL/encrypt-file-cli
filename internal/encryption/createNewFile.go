@@ -27,7 +27,7 @@ func CreateNewFile(fileName string, ciphertext []byte, mode string) error {
 		return nil
 	case "D":
 		s := fileName
-		fileNameClean := strings.Trim(s, ".enc")
+		fileNameClean := strings.TrimRight(s, ".enc")
 
 		// https://pkg.go.dev/os#example-WriteFile
 		filePath := fmt.Sprintf("decryptedFiles/DECRYPTED_%s", fileNameClean)
