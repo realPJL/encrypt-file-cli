@@ -34,9 +34,9 @@ func EncryptContent(fileContent []byte) ([]byte, error) {
 		return nil, fmt.Errorf("failed to generate nonce: %w", err)
 	}
 
-	ciphertext := aesgcm.Seal(nonce, nonce, fileContent, nil)
+	encryptedData := aesgcm.Seal(nonce, nonce, fileContent, nil)
 
 	fmt.Println("Done! Ciphertext generated. Please wait while the encrypted file is being created.")
 
-	return ciphertext, nil
+	return encryptedData, nil
 }

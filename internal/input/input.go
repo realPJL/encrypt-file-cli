@@ -7,8 +7,16 @@ import (
 	"os"
 )
 
-func ReadInput() (string, error) {
-	fmt.Println("Please enter the file name you wish to encrypt: ")
+func ReadInput(mode string) (string, error) {
+
+	switch mode {
+	case "E":
+		fmt.Println("Please enter the file name you wish to encrypt: ")
+	case "D":
+		fmt.Println("Please enter the file name you wish to decrypt: ")
+	default:
+		fmt.Println("Please enter the file name you wish to encrypt: ")
+	}
 
 	fileName := bufio.NewScanner(os.Stdin)
 	fileName.Scan()
