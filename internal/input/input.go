@@ -14,6 +14,8 @@ func ReadInput(mode string) (string, error) {
 		fmt.Println("Please enter the file name you wish to encrypt: ")
 	case "D":
 		fmt.Println("Please enter the file name you wish to decrypt: ")
+	case "K":
+		fmt.Println("Please enter the file name of your secret key: ")
 	default:
 		fmt.Println("Please enter the file name you wish to encrypt: ")
 	}
