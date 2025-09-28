@@ -21,7 +21,19 @@ func runDecryption() {
 		os.Exit(1)
 	}
 
-	plaintext, err := encryption.DecryptContent(fileContent)
+	keyFileName, err := input.ReadInput("K")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	keyFileContent, err := encryption.ReadContent(keyFileName)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	plaintext, err := encryption.DecryptContent(fileContent, keyFileContent)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
